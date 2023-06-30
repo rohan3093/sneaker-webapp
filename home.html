@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Scraper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="logo-container">
+        <img src="/Users/rohanagarwal/Desktop/VNV Scraper App/10HS Logo White.png" alt="Logo">
+    </div>
+
+    <h1>Hype Products on VNV are:</h1>
+    <div class="product-grid">
+        {% for product in products %}
+            <div class="product">
+                <img src="{{ product.image }}" alt="{{ product.name }}" class="product-image">
+                <h2>{{ product.name }}</h2>
+                <p>Price: {{ product.price }}</p>
+                <a href="{{ product.link }}" class="product-link">View on VNV</a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <h1>Nike Launch Calendar:</h1>
+    <div class="nike-grid">
+        {% for release in nike_releases %}
+            <div class="release">
+                <img src="{{ release.image }}" alt="{{ release.name }}" class="product-image">
+                <h2>{{ release.name }}</h2>
+                <p>Release Date: {{ release.release_date }}</p>
+                <a href="{{ release.link }}" class="product-link">View on Nike</a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
